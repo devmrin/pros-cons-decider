@@ -4,3 +4,9 @@
   display: flex;
   flex-direction: column;
 }
+
+.listContainer {
+  display: flex;
+  flex-basis: 100%;
+  flex-direction: row;
+}

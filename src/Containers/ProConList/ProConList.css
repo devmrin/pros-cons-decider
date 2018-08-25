@@ -24,7 +24,8 @@
 
 .prosContainer {
   flex-basis: 100%;
-  background-color: #62bd82;
+  /* background-color: #62bd82; */
+  background-color: #62bd825b;
   border-radius: 5px;
 }
 
@@ -36,7 +37,8 @@
 
 .consContainer {
   flex-basis: 100%;
-  background-color: #fa4e71;
+  /* background-color: #fa4e71; */
+  background-color: #fa4e705e;
   border-radius: 5px;
 }
 

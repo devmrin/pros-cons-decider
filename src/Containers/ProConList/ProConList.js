@@ -7,9 +7,7 @@ class ProConList extends Component {
     return (
       <div className="Column">
         <div className="prosConsWrapper">
-          <h2 className="columnHeading">
-            {list && list.label} <i className="fas fa-pen pencilIcon" />
-          </h2>
+          <h2 className="columnHeading">{list && list.label}</h2>
           <div className="prosContainer">
             <div className="proconsHeading">PROS</div>
             <ul>{list && list.pros && list.pros.map(pro => <li>{pro}</li>)}</ul>

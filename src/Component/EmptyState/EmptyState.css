@@ -1,5 +1,5 @@
 .EmptyStateContainer {
-  background-color: rgba(0, 128, 0, 0.219);
+  background-image: linear-gradient(rgba(0, 128, 0, 0.219), #fa4e705e);
   flex-basis: 100%;
   display: flex;
   flex-direction: column;
