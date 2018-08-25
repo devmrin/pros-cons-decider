@@ -7,23 +7,7 @@ import './HomePage.css';
 
 class HomePage extends Component {
   state = {
-    lists: [
-      {
-        label: 'Home',
-        pros: ['Save Money', 'Comforts of home'],
-        cons: ['Friends & Relatives']
-      },
-      {
-        label: 'Pune',
-        pros: ['No Friends & Relatives'],
-        cons: ['Lose Money']
-      },
-      {
-        label: 'Bangalore',
-        pros: ['Save Money'],
-        cons: ['Relatives']
-      }
-    ]
+    lists: []
   };
 
   render() {
@@ -32,7 +16,7 @@ class HomePage extends Component {
       <div className="HomePage">
         <Header />
         <div className="listContainer">
-          {lists ? (
+          {lists && lists.length >= 1 ? (
             lists.map(list => <ProConList list={list} />)
           ) : (
             <EmptyState />
