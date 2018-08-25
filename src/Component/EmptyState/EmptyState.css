@@ -1,0 +1,18 @@
+.EmptyStateContainer {
+  background-color: rgba(0, 128, 0, 0.219);
+  flex-basis: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.emptyHeading {
+  margin-bottom: 50px;
+}
+
+.instructionHeading {
+  font-weight: 500;
+  margin-top: 50px;
+}

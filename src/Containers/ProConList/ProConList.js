@@ -8,7 +8,7 @@ class ProConList extends Component {
       <div className="Column">
         <div className="prosConsWrapper">
           <h2 className="columnHeading">
-            {list && list.label} <i class="fas fa-pen icon" />
+            {list && list.label} <i className="fas fa-pen pencilIcon" />
           </h2>
           <div className="prosContainer">
             <div className="proconsHeading">PROS</div>

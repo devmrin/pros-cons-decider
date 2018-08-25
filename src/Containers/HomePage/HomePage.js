@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import ProConList from '../ProConList';
 import Header from '../../Component/Header';
+import EmptyState from '../../Component/EmptyState';
+
 import './HomePage.css';
 
 class HomePage extends Component {
@@ -29,7 +31,7 @@ class HomePage extends Component {
     return (
       <div className="HomePage">
         <Header />
-        {lists && lists.map(list => <ProConList list={list} />)}
+        {lists ? lists.map(list => <ProConList list={list} />) : <EmptyState />}
       </div>
     );
   }
