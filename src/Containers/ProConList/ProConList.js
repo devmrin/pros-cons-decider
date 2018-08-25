@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './Column.css';
+import './ProConList.css';
 
-class Column extends Component {
+class ProConList extends Component {
   render() {
     let { list } = this.props;
     return (
@@ -29,4 +29,4 @@ class Column extends Component {
   }
 }
 
-export default Column;
+export default ProConList;

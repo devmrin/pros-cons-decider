@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import Column from '../Column';
+import ProConList from '../ProConList';
+import Header from '../../Component/Header';
 import './HomePage.css';
 
 class HomePage extends Component {
   state = {
-    lists: [
+    listss: [
       {
         label: 'Home',
         pros: ['Save Money', 'Comforts of home'],
@@ -27,7 +28,8 @@ class HomePage extends Component {
     let { lists } = this.state;
     return (
       <div className="HomePage">
-        {lists && lists.map(list => <Column list={list} />)}
+        <Header />
+        {lists && lists.map(list => <ProConList list={list} />)}
       </div>
     );
   }
