@@ -1,0 +1,45 @@
+.Column {
+  display: flex;
+  flex-basis: 100%;
+  padding: 0 5px;
+  background: black;
+}
+
+.prosConsWrapper {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  color: white;
+}
+
+.columnHeading {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  margin-left: 10px;
+  font-size: 1rem;
+}
+
+.prosContainer {
+  flex-basis: 100%;
+  background-color: #62bd82;
+  border-radius: 5px;
+}
+
+.proconsHeading {
+  font-size: 1.5rem;
+  font-weight: 700;
+  opacity: 0.2;
+}
+
+.consContainer {
+  flex-basis: 100%;
+  background-color: #fa4e71;
+  border-radius: 5px;
+}
+
+.divider {
+  height: 20px;
+}
