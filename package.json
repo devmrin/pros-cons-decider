@@ -1,6 +1,7 @@
 {
   "name": "pros-cons-decider",
   "version": "0.1.0",
+  "author": "Mrinmay Mukherjee",
   "private": true,
   "dependencies": {
     "react": "^16.4.2",
