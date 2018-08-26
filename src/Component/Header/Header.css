@@ -3,11 +3,10 @@
   justify-content: flex-end;
   align-items: center;
   color: white;
+  height: 40px;
 }
 
 .addButton {
-  margin-top: 10px;
-  margin-bottom: 5px;
   margin-right: 10px;
   background: none;
   border: none;
@@ -17,4 +16,18 @@
 
 .plusIcon {
   font-size: 1.5rem;
+}
+
+.labelInput {
+  border-radius: 2px;
+  margin-right: 10px;
+  height: 20px;
+  width: 150px;
+  border: none;
+  transform: translateX(20vw);
+  transition: transform 0.2s ease-in;
+}
+
+.inputAppear {
+  transform: translateX(0);
 }
