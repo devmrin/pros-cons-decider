@@ -28,6 +28,7 @@ class ProConList extends Component {
       addingPro: true,
       addingCon: false
     });
+    setTimeout(() => this.proInput.focus(), 300);
   };
 
   handleProInput = e => {
@@ -48,6 +49,7 @@ class ProConList extends Component {
       addingCon: true,
       addingPro: false
     });
+    setTimeout(() => this.conInput.focus(), 300);
   };
 
   handleConInput = e => {
@@ -92,6 +94,7 @@ class ProConList extends Component {
                 </button>
                 <input
                   type="text"
+                  ref={ref => (this.proInput = ref)}
                   value={proVal}
                   onChange={this.handleProInput}
                   onKeyPress={this.onAddProItemInputSubmit}
@@ -122,6 +125,7 @@ class ProConList extends Component {
                 </button>
                 <input
                   type="text"
+                  ref={ref => (this.conInput = ref)}
                   value={conVal}
                   onChange={this.handleConInput}
                   onKeyPress={this.onAddConItemInputSubmit}
