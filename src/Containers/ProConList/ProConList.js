@@ -21,6 +21,7 @@ class ProConList extends Component {
     this.setState({
       showLabelHeadingInput: true
     });
+    setTimeout(() => this.listLabelHeading.focus(), 0);
   };
 
   onHeadingLabelChange = e => {
@@ -118,6 +119,7 @@ class ProConList extends Component {
               />
               <input
                 type="text"
+                ref={ref => (this.listLabelHeading = ref)}
                 className={
                   showLabelHeadingInput
                     ? 'labelHeadingInput labelHeadingAppear'
