@@ -26,6 +26,12 @@ class ProConList extends Component {
     });
   };
 
+  onAddProItemInputSubmit = e => {
+    if (e.key === 'Enter') {
+      this.props.addProToList(this.props.list, this.state.proVal);
+    }
+  };
+
   onAddConItemClick = () => {
     this.setState({
       addingCon: true
@@ -36,6 +42,12 @@ class ProConList extends Component {
     this.setState({
       conVal: e.target.value
     });
+  };
+
+  onAddConItemInputSubmit = e => {
+    if (e.key === 'Enter') {
+      this.props.addConToList(this.props.list, this.state.conVal);
+    }
   };
 
   render() {
@@ -69,6 +81,7 @@ class ProConList extends Component {
                   type="text"
                   value={proVal}
                   onChange={this.handleProInput}
+                  onKeyPress={this.onAddProItemInputSubmit}
                   className={
                     addingPro
                       ? 'addListItemInput appearListItemInput'
@@ -98,6 +111,7 @@ class ProConList extends Component {
                   type="text"
                   value={conVal}
                   onChange={this.handleConInput}
+                  onKeyPress={this.onAddConItemInputSubmit}
                   className={
                     addingCon
                       ? 'addListItemInput appearListItemInput'

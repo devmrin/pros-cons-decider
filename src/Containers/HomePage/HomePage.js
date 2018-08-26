@@ -24,8 +24,20 @@ class HomePage extends Component {
     });
   };
 
-  //add list item
-  addToList = () => {};
+  //add pro list item
+  addProToList = (selectedList, val) => {
+    alert(`add ${val} as pro to ${selectedList.label} list.`);
+    let updatedList = this.state.lists.map(list => list);
+
+    this.setState({
+      lists: updatedList
+    });
+  };
+
+  //add con list item
+  addConToList = (selectedList, val) => {
+    alert(`add ${val} as con to ${selectedList.label} list.`);
+  };
 
   render() {
     let { lists } = this.state;
@@ -34,10 +46,12 @@ class HomePage extends Component {
         <Header createNewList={this.createNewList} />
         <div className="listContainer">
           {lists && lists.length >= 1 ? (
-            lists.map(list => (
+            lists.map((list, index) => (
               <ProConList
-                key={list.label}
+                key={index}
                 removeAList={this.removeAList}
+                addProToList={this.addProToList}
+                addConToList={this.addConToList}
                 list={list}
               />
             ))
