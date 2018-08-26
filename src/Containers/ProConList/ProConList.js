@@ -19,7 +19,7 @@ class ProConList extends Component {
       <div className="Column">
         <div className="prosConsWrapper">
           <h2 className="columnHeading">
-            {list && list.label}
+            <span className="listLabelHeading">{list && list.label}</span>
             <button onClick={this.handleListDelete} className="listDelBtn">
               remove
             </button>

@@ -18,6 +18,10 @@
   justify-content: space-between;
 }
 
+.listLabelHeading {
+  cursor: pointer;
+}
+
 .listDelBtn {
   cursor: pointer;
   border: 1px solid #fff;
@@ -66,6 +70,7 @@
   border: none;
   border-radius: 5px;
   background: rgba(0, 0, 0, 0.3);
+  outline: black;
 }
 
 .consContainer {
