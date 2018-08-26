@@ -8,16 +8,17 @@
 
 .addButton {
   margin-right: 10px;
+  outline: black;
   background: none;
   border: none;
   cursor: pointer;
   color: white;
-  opacity: 1;
-  transition: opacity 0.5s ease-in-out;
+  transform: rotate(0deg);
+  transition: transform 0.3s ease-in-out;
 }
 
-.hide {
-  opacity: 0;
+.rotate {
+  transform: rotate(45deg);
 }
 
 .plusIcon {
@@ -35,5 +36,5 @@
 }
 
 .inputAppear {
-  transform: translateX(40px);
+  transform: translateX(0);
 }

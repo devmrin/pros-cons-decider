@@ -8,14 +8,14 @@ class Header extends Component {
   };
 
   onAddButtonClick = () => {
-    this.setState(
-      {
-        showInput: true
-      },
-      () => {
+    let { showInput } = this.state;
+    if (showInput) {
+      this.setState({ showInput: false });
+    } else {
+      this.setState({ showInput: true }, () => {
         setTimeout(() => this.labelInputRef.focus(), 300); //300 is 100ms over transition time
-      }
-    );
+      });
+    }
   };
 
   handleLabelInput = e => {
@@ -49,7 +49,7 @@ class Header extends Component {
           onKeyPress={this.handleLabelSubmit}
         />
         <button
-          className={showInput ? 'addButton hide' : 'addButton'}
+          className={showInput ? 'addButton rotate' : 'addButton'}
           onClick={this.onAddButtonClick}
         >
           <i className="fas fa-plus plusIcon" />
