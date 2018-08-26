@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import './Header.css';
 
 class Header extends Component {
@@ -8,49 +8,52 @@ class Header extends Component {
   };
 
   onAddButtonClick = () => {
-    this.setState({
-      showInput: true
-    });
+    this.setState(
+      {
+        showInput: true
+      },
+      () => {
+        setTimeout(() => this.labelInputRef.focus(), 300); //300 is 100ms over transition time
+      }
+    );
   };
 
   handleLabelInput = e => {
     this.setState({
       labelInput: e.target.value
     });
+    // console.log(e.target);
   };
 
   handleLabelSubmit = e => {
-    e.preventDefault();
-    console.log(e.target.keyCode);
+    if (e.key === 'Enter') {
+      this.setState({
+        showInput: false,
+        labelInput: ''
+      });
+    }
   };
 
   render() {
     let { showInput, labelInput } = this.state;
     return (
       <div className="headerContainer">
-        {showInput ? (
-          <input
-            className="labelInput inputAppear"
-            type="text"
-            value={labelInput}
-            name="listLabel"
-            id="listLabel"
-            onChange={this.handleLabelInput}
-            onKeyUp={this.handleLabelSubmit}
-          />
-        ) : (
-          <Fragment>
-            <input
-              className="labelInput"
-              type="text"
-              name="listLabel"
-              id="listLabel"
-            />
-            <button className="addButton" onClick={this.onAddButtonClick}>
-              <i className="fas fa-plus plusIcon" />
-            </button>
-          </Fragment>
-        )}
+        <input
+          ref={ref => (this.labelInputRef = ref)}
+          className={showInput ? 'labelInput inputAppear' : 'labelInput'}
+          type="text"
+          value={labelInput}
+          name="listLabel"
+          id="listLabel"
+          onChange={this.handleLabelInput}
+          onKeyPress={this.handleLabelSubmit}
+        />
+        <button
+          className={showInput ? 'addButton hide' : 'addButton'}
+          onClick={this.onAddButtonClick}
+        >
+          <i className="fas fa-plus plusIcon" />
+        </button>
       </div>
     );
   }
