@@ -57,6 +57,7 @@
 }
 
 .addListItem {
+  position: relative;
   list-style-type: none;
 }
 
@@ -71,6 +72,15 @@
   border-radius: 5px;
   background: rgba(0, 0, 0, 0.3);
   outline: black;
+  opacity: 1;
+  transition: opacity 0.2s ease-in;
+  position: relative;
+  z-index: 10;
+}
+
+.hideAddBtn {
+  opacity: 0;
+  z-index: -1;
 }
 
 .consContainer {
@@ -82,4 +92,24 @@
 
 .divider {
   height: 20px;
+}
+
+.addListItemInput {
+  position: absolute;
+  left: 0;
+  top: 4px;
+  outline: black;
+  width: 100px;
+  height: 20px;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in;
+  z-index: 1;
+  color: white;
+}
+
+.appearListItemInput {
+  opacity: 1;
 }

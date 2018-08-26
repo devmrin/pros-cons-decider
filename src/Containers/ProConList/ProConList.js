@@ -3,7 +3,9 @@ import './ProConList.css';
 
 class ProConList extends Component {
   state = {
+    addingPro: false,
     proVal: '',
+    addingCon: false,
     conVal: ''
   };
 
@@ -12,8 +14,20 @@ class ProConList extends Component {
     removeAList(list.label);
   };
 
+  onAddProItem = () => {
+    this.setState({
+      addingPro: true
+    });
+  };
+
+  onAddConItem = () => {
+    this.setState({
+      addingCon: true
+    });
+  };
+
   render() {
-    let { proVal, conVal } = this.state;
+    let { proVal, conVal, addingCon, addingPro } = this.state;
     let { list } = this.props;
     return (
       <div className="Column">
@@ -31,7 +45,23 @@ class ProConList extends Component {
                 list.pros &&
                 list.pros.map(pro => <li key={pro}>{pro}</li>)}
               <li className="addListItem">
-                <button className="addListItemBtn">+ Add a pro</button>
+                <button
+                  className={
+                    addingPro ? 'addListItemBtn hideAddBtn' : 'addListItemBtn'
+                  }
+                  onClick={this.onAddProItem}
+                >
+                  + Add a pro
+                </button>
+                <input
+                  type="text"
+                  value={proVal}
+                  className={
+                    addingPro
+                      ? 'addListItemInput appearListItemInput'
+                      : 'addListItemInput'
+                  }
+                />
               </li>
             </ul>
           </div>
@@ -43,7 +73,23 @@ class ProConList extends Component {
                 list.cons &&
                 list.cons.map(con => <li key={con}>{con}</li>)}
               <li className="addListItem">
-                <button className="addListItemBtn">+ Add a con</button>
+                <button
+                  className={
+                    addingCon ? 'addListItemBtn hideAddBtn' : 'addListItemBtn'
+                  }
+                  onClick={this.onAddConItem}
+                >
+                  + Add a con
+                </button>
+                <input
+                  type="text"
+                  value={conVal}
+                  className={
+                    addingCon
+                      ? 'addListItemInput appearListItemInput'
+                      : 'addListItemInput'
+                  }
+                />
               </li>
             </ul>
           </div>

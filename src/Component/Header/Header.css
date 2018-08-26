@@ -31,10 +31,10 @@
   height: 20px;
   width: 150px;
   border: none;
-  transform: translateX(20vw);
+  transform: translateY(-50px);
   transition: transform 0.2s ease-in;
 }
 
 .inputAppear {
-  transform: translateX(0);
+  transform: translateY(0);
 }
