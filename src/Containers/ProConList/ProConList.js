@@ -14,6 +14,15 @@ class ProConList extends Component {
     removeAList(list.label);
   };
 
+  resetState = () => {
+    this.setState({
+      addingPro: false,
+      proVal: '',
+      addingCon: false,
+      conVal: ''
+    });
+  };
+
   onAddProItemClick = () => {
     this.setState({
       addingPro: true
@@ -29,6 +38,7 @@ class ProConList extends Component {
   onAddProItemInputSubmit = e => {
     if (e.key === 'Enter') {
       this.props.addProToList(this.props.list, this.state.proVal);
+      this.resetState();
     }
   };
 
@@ -47,6 +57,7 @@ class ProConList extends Component {
   onAddConItemInputSubmit = e => {
     if (e.key === 'Enter') {
       this.props.addConToList(this.props.list, this.state.conVal);
+      this.resetState();
     }
   };
 

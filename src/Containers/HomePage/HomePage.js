@@ -26,9 +26,13 @@ class HomePage extends Component {
 
   //add pro list item
   addProToList = (selectedList, val) => {
-    alert(`add ${val} as pro to ${selectedList.label} list.`);
-    let updatedList = this.state.lists.map(list => list);
-
+    // alert(`add ${val} as pro to ${selectedList.label} list.`);
+    let updatedList = this.state.lists.map(list => {
+      if (list.label === selectedList.label) {
+        list.pros = [...list.pros, val];
+      }
+      return list;
+    });
     this.setState({
       lists: updatedList
     });
@@ -36,7 +40,16 @@ class HomePage extends Component {
 
   //add con list item
   addConToList = (selectedList, val) => {
-    alert(`add ${val} as con to ${selectedList.label} list.`);
+    // alert(`add ${val} as con to ${selectedList.label} list.`);
+    let updatedList = this.state.lists.map(list => {
+      if (list.label === selectedList.label) {
+        list.cons = [...list.cons, val];
+      }
+      return list;
+    });
+    this.setState({
+      lists: updatedList
+    });
   };
 
   render() {
