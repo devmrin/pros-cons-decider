@@ -44,6 +44,7 @@
 }
 
 .prosContainer {
+  position: relative;
   flex-basis: 100%;
   /* background-color: #62bd82; */
   background-color: #62bd825b;
@@ -51,9 +52,12 @@
 }
 
 .proconsHeading {
-  font-size: 1.5rem;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 2.5rem;
   font-weight: 700;
-  opacity: 0.2;
+  opacity: 0.05;
 }
 
 .addListItem {
@@ -84,6 +88,7 @@
 }
 
 .consContainer {
+  position: relative;
   flex-basis: 100%;
   /* background-color: #fa4e71; */
   background-color: #fa4e705e;
