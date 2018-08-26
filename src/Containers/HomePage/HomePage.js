@@ -24,6 +24,18 @@ class HomePage extends Component {
     });
   };
 
+  changeListLabelHeading = (selectedList, label) => {
+    let updatedList = this.state.lists.map(list => {
+      if (list.label === selectedList.label) {
+        list.label = label;
+      }
+      return list;
+    });
+    this.setState({
+      lists: updatedList
+    });
+  };
+
   //add pro list item
   addProToList = (selectedList, val) => {
     // alert(`add ${val} as pro to ${selectedList.label} list.`);
@@ -62,6 +74,7 @@ class HomePage extends Component {
             lists.map((list, index) => (
               <ProConList
                 key={index}
+                changeListLabelHeading={this.changeListLabelHeading}
                 removeAList={this.removeAList}
                 addProToList={this.addProToList}
                 addConToList={this.addConToList}
