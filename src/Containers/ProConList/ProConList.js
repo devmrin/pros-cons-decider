@@ -25,7 +25,8 @@ class ProConList extends Component {
 
   onAddProItemClick = () => {
     this.setState({
-      addingPro: true
+      addingPro: true,
+      addingCon: false
     });
   };
 
@@ -44,7 +45,8 @@ class ProConList extends Component {
 
   onAddConItemClick = () => {
     this.setState({
-      addingCon: true
+      addingCon: true,
+      addingPro: false
     });
   };
 
