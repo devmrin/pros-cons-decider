@@ -46,7 +46,13 @@ class HomePage extends Component {
     // alert(`add ${val} as pro to ${selectedList.label} list.`);
     let updatedList = this.state.lists.map(list => {
       if (list.label === selectedList.label) {
-        list.pros = [...list.pros, val];
+        if (list.pros.length < 15) {
+          list.pros = [...list.pros, val];
+        } else {
+          alert(
+            "If you need to add that many pros - maybe you're not doing it right"
+          );
+        }
       }
       return list;
     });
@@ -60,7 +66,13 @@ class HomePage extends Component {
     // alert(`add ${val} as con to ${selectedList.label} list.`);
     let updatedList = this.state.lists.map(list => {
       if (list.label === selectedList.label) {
-        list.cons = [...list.cons, val];
+        if (list.cons.length < 15) {
+          list.cons = [...list.cons, val];
+        } else {
+          alert(
+            "If you need to add that many cons - you're not really doing it right"
+          );
+        }
       }
       return list;
     });
