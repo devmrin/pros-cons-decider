@@ -6,7 +6,33 @@ class ProConList extends Component {
     addingPro: false,
     proVal: '',
     addingCon: false,
-    conVal: ''
+    conVal: '',
+    showLabelHeadingInput: false
+  };
+
+  componentDidMount() {
+    this.setState({
+      headingLabel: this.props.list.label
+    });
+  }
+
+  onListLabelHeadingClick = () => {
+    // alert('Edit list heading bro! Common!');
+    this.setState({
+      showLabelHeadingInput: true
+    });
+  };
+
+  onHeadingLabelChange = e => {
+    this.props.changeListLabelHeading(this.props.list, e.target.value);
+  };
+
+  submitLabelHeadingInput = e => {
+    if (e.key === 'Enter') {
+      this.setState({
+        showLabelHeadingInput: false
+      });
+    }
   };
 
   handleListDelete = () => {
@@ -66,13 +92,42 @@ class ProConList extends Component {
   };
 
   render() {
-    let { proVal, conVal, addingCon, addingPro } = this.state;
+    let {
+      proVal,
+      conVal,
+      addingCon,
+      addingPro,
+      showLabelHeadingInput
+    } = this.state;
     let { list } = this.props;
     return (
       <div className="Column">
         <div className="prosConsWrapper">
           <h2 className="columnHeading">
-            <span className="listLabelHeading">{list && list.label}</span>
+            <span
+              className="listLabelHeading"
+              onClick={this.onListLabelHeadingClick}
+            >
+              {showLabelHeadingInput ? '' : list && list.label}
+              <i
+                className={
+                  showLabelHeadingInput
+                    ? 'fas fa-pen listHeadingPen hide'
+                    : 'fas fa-pen listHeadingPen'
+                }
+              />
+              <input
+                type="text"
+                className={
+                  showLabelHeadingInput
+                    ? 'labelHeadingInput labelHeadingAppear'
+                    : 'labelHeadingInput'
+                }
+                value={list.label}
+                onChange={this.onHeadingLabelChange}
+                onKeyPress={this.submitLabelHeadingInput}
+              />
+            </span>
             <button onClick={this.handleListDelete} className="listDelBtn">
               remove
             </button>

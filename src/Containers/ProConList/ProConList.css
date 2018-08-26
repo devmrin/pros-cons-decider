@@ -20,6 +20,39 @@
 
 .listLabelHeading {
   cursor: pointer;
+  position: relative;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  z-index: 10;
+}
+
+.listLabelHeading:hover > .listHeadingPen {
+  opacity: 0.7;
+}
+
+.listHeadingPen {
+  margin-left: 6px;
+  font-size: 1.1rem;
+  opacity: 0;
+  transition: opacity 0.2s ease-in;
+}
+
+.labelHeadingInput {
+  font-family: sans-serif;
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.1s ease-in;
+  outline: black;
+  font-size: 1.5rem;
+  font-weight: bold;
+  background: black;
+  color: white;
+  border: none;
+}
+
+.labelHeadingAppear {
+  opacity: 1;
 }
 
 .listDelBtn {
