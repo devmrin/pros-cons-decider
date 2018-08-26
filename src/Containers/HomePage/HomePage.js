@@ -7,7 +7,7 @@ import './HomePage.css';
 
 class HomePage extends Component {
   state = {
-    lists: [{ label: 'iPhone 7', pros: ['looks'], cons: ['cost'] }]
+    lists: []
   };
 
   createNewList = label => {
