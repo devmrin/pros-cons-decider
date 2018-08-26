@@ -27,6 +27,7 @@ class Header extends Component {
 
   handleLabelSubmit = e => {
     if (e.key === 'Enter') {
+      this.props.createNewList(this.state.labelInput);
       this.setState({
         showInput: false,
         labelInput: ''
