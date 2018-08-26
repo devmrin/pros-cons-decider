@@ -2,12 +2,22 @@ import React, { Component } from 'react';
 import './ProConList.css';
 
 class ProConList extends Component {
+  handleListDelete = () => {
+    let { removeAList, list } = this.props;
+    removeAList(list.label);
+  };
+
   render() {
     let { list } = this.props;
     return (
       <div className="Column">
         <div className="prosConsWrapper">
-          <h2 className="columnHeading">{list && list.label}</h2>
+          <h2 className="columnHeading">
+            {list && list.label}
+            <button onClick={this.handleListDelete} className="listDelBtn">
+              delete
+            </button>
+          </h2>
           <div className="prosContainer">
             <div className="proconsHeading">PROS</div>
             <ul>

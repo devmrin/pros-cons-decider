@@ -7,12 +7,20 @@ import './HomePage.css';
 
 class HomePage extends Component {
   state = {
-    lists: []
+    lists: [{ label: 'iPhone 7', pros: ['looks'], cons: ['cost'] }]
   };
 
   createNewList = label => {
     this.setState({
       lists: [...this.state.lists, { label, pros: [], cons: [] }]
+    });
+  };
+
+  removeAList = label => {
+    alert('remove ' + label);
+    let updatedList = this.state.lists.filter(list => list.label !== label);
+    this.setState({
+      lists: [...updatedList]
     });
   };
 
@@ -23,7 +31,13 @@ class HomePage extends Component {
         <Header createNewList={this.createNewList} />
         <div className="listContainer">
           {lists && lists.length >= 1 ? (
-            lists.map(list => <ProConList key={list.label} list={list} />)
+            lists.map(list => (
+              <ProConList
+                key={list.label}
+                removeAList={this.removeAList}
+                list={list}
+              />
+            ))
           ) : (
             <EmptyState />
           )}

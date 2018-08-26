@@ -15,6 +15,23 @@
 .columnHeading {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+}
+
+.listDelBtn {
+  cursor: pointer;
+  border: 1px solid #f04;
+  outline: black;
+  border-radius: 10px;
+  color: #f04;
+  opacity: 0.4;
+  font-size: 0.8rem;
+  background: none;
+  transition: opacity 0.2s ease-in;
+}
+
+.listDelBtn:hover {
+  opacity: 0.8;
 }
 
 .pencilIcon {
