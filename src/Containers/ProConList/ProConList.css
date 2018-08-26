@@ -97,7 +97,8 @@
 .addListItemInput {
   position: absolute;
   left: 0;
-  top: 4px;
+  top: 6px;
+  font-size: 0.9rem;
   outline: black;
   width: 100px;
   height: 20px;

@@ -24,6 +24,9 @@ class HomePage extends Component {
     });
   };
 
+  //add list item
+  addToList = () => {};
+
   render() {
     let { lists } = this.state;
     return (

@@ -14,15 +14,27 @@ class ProConList extends Component {
     removeAList(list.label);
   };
 
-  onAddProItem = () => {
+  onAddProItemClick = () => {
     this.setState({
       addingPro: true
     });
   };
 
-  onAddConItem = () => {
+  handleProInput = e => {
+    this.setState({
+      proVal: e.target.value
+    });
+  };
+
+  onAddConItemClick = () => {
     this.setState({
       addingCon: true
+    });
+  };
+
+  handleConInput = e => {
+    this.setState({
+      conVal: e.target.value
     });
   };
 
@@ -49,13 +61,14 @@ class ProConList extends Component {
                   className={
                     addingPro ? 'addListItemBtn hideAddBtn' : 'addListItemBtn'
                   }
-                  onClick={this.onAddProItem}
+                  onClick={this.onAddProItemClick}
                 >
                   + Add a pro
                 </button>
                 <input
                   type="text"
                   value={proVal}
+                  onChange={this.handleProInput}
                   className={
                     addingPro
                       ? 'addListItemInput appearListItemInput'
@@ -77,13 +90,14 @@ class ProConList extends Component {
                   className={
                     addingCon ? 'addListItemBtn hideAddBtn' : 'addListItemBtn'
                   }
-                  onClick={this.onAddConItem}
+                  onClick={this.onAddConItemClick}
                 >
                   + Add a con
                 </button>
                 <input
                   type="text"
                   value={conVal}
+                  onChange={this.handleConInput}
                   className={
                     addingCon
                       ? 'addListItemInput appearListItemInput'
