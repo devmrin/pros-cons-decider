@@ -11,9 +11,14 @@ class HomePage extends Component {
   };
 
   createNewList = label => {
-    this.setState({
-      lists: [...this.state.lists, { label, pros: [], cons: [] }]
-    });
+    let { lists } = this.state;
+    if (lists && lists.length < 4) {
+      this.setState({
+        lists: [...this.state.lists, { label, pros: [], cons: [] }]
+      });
+    } else {
+      alert('Currently only 4 lists are supported!');
+    }
   };
 
   removeAList = label => {

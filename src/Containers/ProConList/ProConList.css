@@ -90,9 +90,9 @@
   position: absolute;
   bottom: 0;
   right: 0;
-  font-size: 2.5rem;
-  font-weight: 700;
-  opacity: 0.05;
+  font-size: 3.5rem;
+  font-weight: 900;
+  opacity: 0.03;
 }
 
 .addListItem {
