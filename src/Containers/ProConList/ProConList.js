@@ -33,6 +33,7 @@ class ProConList extends Component {
       this.setState({
         showLabelHeadingInput: false
       });
+      this.listLabelHeading.blur();
     }
   };
 
@@ -67,6 +68,7 @@ class ProConList extends Component {
   onAddProItemInputSubmit = e => {
     if (e.key === 'Enter') {
       this.props.addProToList(this.props.list, this.state.proVal);
+      this.proInput.blur();
       this.resetState();
     }
   };
@@ -88,6 +90,7 @@ class ProConList extends Component {
   onAddConItemInputSubmit = e => {
     if (e.key === 'Enter') {
       this.props.addConToList(this.props.list, this.state.conVal);
+      this.conInput.blur();
       this.resetState();
     }
   };
