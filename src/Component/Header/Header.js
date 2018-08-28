@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Logo from '../../assets/images/pros-cons-logo.svg';
 import './Header.css';
 
 class Header extends Component {
@@ -40,13 +39,6 @@ class Header extends Component {
     let { showInput, labelInput } = this.state;
     return (
       <div className="headerContainer">
-        <a
-          href="https://mrinmaymukherjee.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src={Logo} alt="logo" className="headerLogo" />
-        </a>
         <div className="headerInputAddContainer">
           <input
             ref={ref => (this.labelInputRef = ref)}
