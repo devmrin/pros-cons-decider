@@ -47,22 +47,24 @@ class Header extends Component {
         >
           <img src={Logo} alt="logo" className="headerLogo" />
         </a>
-        <input
-          ref={ref => (this.labelInputRef = ref)}
-          className={showInput ? 'labelInput inputAppear' : 'labelInput'}
-          type="text"
-          value={labelInput}
-          name="listLabel"
-          id="listLabel"
-          onChange={this.handleLabelInput}
-          onKeyPress={this.handleLabelSubmit}
-        />
-        <button
-          className={showInput ? 'addButton rotate' : 'addButton'}
-          onClick={this.onAddButtonClick}
-        >
-          <i className="fas fa-plus plusIcon" />
-        </button>
+        <div className="headerInputAddContainer">
+          <input
+            ref={ref => (this.labelInputRef = ref)}
+            className={showInput ? 'labelInput inputAppear' : 'labelInput'}
+            type="text"
+            value={labelInput}
+            name="listLabel"
+            id="listLabel"
+            onChange={this.handleLabelInput}
+            onKeyPress={this.handleLabelSubmit}
+          />
+          <button
+            className={showInput ? 'addButton rotate' : 'addButton'}
+            onClick={this.onAddButtonClick}
+          >
+            <i className="fas fa-plus plusIcon" />
+          </button>
+        </div>
       </div>
     );
   }
