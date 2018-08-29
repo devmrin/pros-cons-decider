@@ -83,6 +83,10 @@ class ProConList extends Component {
     this.setState({
       proVal: e.target.value
     });
+    if (e.target.value.length > 120) {
+      this.props.addProToList(this.props.list, this.state.proVal);
+      alert('Please keep your points short.');
+    }
   };
 
   onAddProItemInputSubmit = e => {
@@ -107,8 +111,12 @@ class ProConList extends Component {
 
   handleConInput = e => {
     this.setState({
-      onVal: e.target.value
+      conVal: e.target.value
     });
+    if (e.target.value.length > 120) {
+      this.props.addConToList(this.props.list, this.state.conVal);
+      alert('Please keep your points short.');
+    }
   };
 
   onAddConItemInputSubmit = e => {
