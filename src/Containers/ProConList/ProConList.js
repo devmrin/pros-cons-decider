@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 
 import PenIcon from '../../assets/icons/pen.svg';
+import PencilIcon from '../../assets/icons/pencil-alt.svg';
+import TrashIcon from '../../assets/icons/trash.svg';
+
 import './ProConList.css';
 
 class ProConList extends Component {
@@ -19,7 +22,6 @@ class ProConList extends Component {
   }
 
   onListLabelHeadingClick = () => {
-    // alert('Edit list heading bro! Common!');
     this.setState({
       showLabelHeadingInput: true
     });
@@ -27,7 +29,11 @@ class ProConList extends Component {
   };
 
   onHeadingLabelChange = e => {
-    this.props.changeListLabelHeading(this.props.list, e.target.value);
+    if (e.target.value.length > 50) {
+      alert('Please keep the titles concise.');
+    } else {
+      this.props.changeListLabelHeading(this.props.list, e.target.value);
+    }
   };
 
   submitLabelHeadingInput = e => {
@@ -101,7 +107,7 @@ class ProConList extends Component {
 
   handleConInput = e => {
     this.setState({
-      conVal: e.target.value
+      onVal: e.target.value
     });
   };
 
@@ -166,7 +172,27 @@ class ProConList extends Component {
             <ul>
               {list &&
                 list.pros &&
-                list.pros.map((pro, index) => <li key={index}>{pro}</li>)}
+                list.pros.map((pro, index) => (
+                  <div className="proConListGroup">
+                    <li key={index} className="proConListItem">
+                      {pro}
+                    </li>
+                    <button className=".iconButtonGroup">
+                      <img
+                        src={PencilIcon}
+                        alt="edit-icon"
+                        className="editItemIcon"
+                      />
+                    </button>
+                    <button className=".iconButtonGroup">
+                      <img
+                        src={TrashIcon}
+                        alt="trash-icon"
+                        className="deleteItemIcon"
+                      />
+                    </button>
+                  </div>
+                ))}
               <li className="addListItem">
                 <button
                   className={
@@ -199,7 +225,27 @@ class ProConList extends Component {
             <ul>
               {list &&
                 list.cons &&
-                list.cons.map((con, index) => <li key={index}>{con}</li>)}
+                list.cons.map((con, index) => (
+                  <div className="proConListGroup">
+                    <li key={index} className="proConListItem">
+                      {con}
+                    </li>
+                    <button className=".iconButtonGroup">
+                      <img
+                        src={PencilIcon}
+                        alt="edit-icon"
+                        className="editItemIcon"
+                      />
+                    </button>
+                    <button className=".iconButtonGroup">
+                      <img
+                        src={TrashIcon}
+                        alt="trash-icon"
+                        className="deleteItemIcon"
+                      />
+                    </button>
+                  </div>
+                ))}
               <li className="addListItem">
                 <button
                   className={

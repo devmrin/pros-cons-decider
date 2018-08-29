@@ -95,6 +95,45 @@
   opacity: 0.03;
 }
 
+.proConListGroup {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.proConListGroup > button {
+  background: none;
+  border: none;
+  padding: 0 5px;
+  outline: none;
+  opacity: 0;
+  cursor: pointer;
+  transition: opacity 0.4s ease-in;
+}
+
+.proConListGroup:hover > button {
+  opacity: 0.5;
+}
+
+.editItemIcon {
+  height: 12px;
+  margin-left: 10px;
+  transition: opacity 0.2s ease-in;
+}
+
+.editItemIcon:hover {
+  opacity: 0.4;
+}
+
+.deleteItemIcon {
+  height: 12px;
+  transition: opacity 0.2s ease-in;
+}
+
+.deleteItemIcon:hover {
+  opacity: 0.4;
+}
+
 .addListItem {
   position: relative;
   list-style-type: none;
