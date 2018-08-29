@@ -51,7 +51,12 @@ class ProConList extends Component {
     });
   };
 
-  onAddProItemClick = () => {
+  handleProConInputBlur = () => {
+    this.resetState();
+  };
+
+  onAddProItemClick = e => {
+    e.stopPropagation();
     this.setState({
       addingPro: true,
       addingCon: false
@@ -73,7 +78,8 @@ class ProConList extends Component {
     }
   };
 
-  onAddConItemClick = () => {
+  onAddConItemClick = e => {
+    e.stopPropagation();
     this.setState({
       addingCon: true,
       addingPro: false
@@ -156,8 +162,10 @@ class ProConList extends Component {
                   type="text"
                   ref={ref => (this.proInput = ref)}
                   value={proVal}
+                  onClick={e => e.stopPropagation()}
                   onChange={this.handleProInput}
                   onKeyPress={this.onAddProItemInputSubmit}
+                  onBlur={this.handleProConInputBlur}
                   className={
                     addingPro
                       ? 'addListItemInput appearListItemInput'
@@ -187,8 +195,10 @@ class ProConList extends Component {
                   type="text"
                   ref={ref => (this.conInput = ref)}
                   value={conVal}
+                  onClick={e => e.stopPropagation()}
                   onChange={this.handleConInput}
                   onKeyPress={this.onAddConItemInputSubmit}
+                  onBlur={this.handleProConInputBlur}
                   className={
                     addingCon
                       ? 'addListItemInput appearListItemInput'
