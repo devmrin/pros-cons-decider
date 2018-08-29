@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+
+import PenIcon from '../../assets/icons/pen.svg';
 import './ProConList.css';
 
 class ProConList extends Component {
@@ -132,11 +134,12 @@ class ProConList extends Component {
               onClick={this.onListLabelHeadingClick}
             >
               {showLabelHeadingInput ? '' : list && list.label}
-              <i
+              <img
+                src={PenIcon}
                 className={
                   showLabelHeadingInput
-                    ? 'fas fa-pen listHeadingPen hide'
-                    : 'fas fa-pen listHeadingPen'
+                    ? 'listHeadingPen hide'
+                    : 'listHeadingPen'
                 }
               />
               <input
