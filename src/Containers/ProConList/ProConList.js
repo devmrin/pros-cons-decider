@@ -29,7 +29,7 @@ class ProConList extends Component {
   };
 
   onHeadingLabelChange = e => {
-    if (e.target.value.length > 50) {
+    if (e.target.value.length > 40) {
       alert('Please keep the titles concise.');
     } else {
       this.props.changeListLabelHeading(this.props.list, e.target.value);

@@ -21,6 +21,7 @@
 .listLabelHeading {
   cursor: pointer;
   position: relative;
+  height: 50px;
   z-index: 100;
   display: flex;
   align-items: center;
