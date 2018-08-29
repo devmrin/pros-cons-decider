@@ -7,11 +7,12 @@ import './HomePage.css';
 
 class HomePage extends Component {
   state = {
-    lists: [{
-      label: 'tap on title to edit',
-      pros: [],
-      cons: [],
-    }]
+    // lists: [{
+    //   label: 'tap on title to edit',
+    //   pros: [],
+    //   cons: [],
+    // }]
+    lists: []
   };
 
   createNewList = label => {
