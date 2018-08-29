@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 590 571.514">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #5c1d29;
+      }
+
+      .cls-2 {
+        fill: #23432e;
+      }
+    </style>
+  </defs>
+  <g id="pros-cons_logo" data-name="pros-cons logo" transform="translate(65.994 -278.241)">
+    <path id="Path_1" data-name="Path 1" class="cls-1" d="M391.764,0V391.764H0Z" transform="translate(132.241 278.241)"/>
+    <path id="Path_2" data-name="Path 2" class="cls-2" d="M0,393.75V0H393.75Z" transform="translate(-65.994 456.006)"/>
+  </g>
+</svg>
