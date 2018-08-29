@@ -37,6 +37,13 @@ class ProConList extends Component {
     }
   };
 
+  handleListHeadingInputBlur = () => {
+    this.setState({
+      showLabelHeadingInput: false
+    });
+    this.listLabelHeading.blur();
+  };
+
   handleListDelete = () => {
     let { removeAList, list } = this.props;
     removeAList(list.label);
@@ -73,8 +80,11 @@ class ProConList extends Component {
   onAddProItemInputSubmit = e => {
     if (e.key === 'Enter') {
       this.props.addProToList(this.props.list, this.state.proVal);
-      this.proInput.blur();
-      this.resetState();
+      this.setState({
+        proVal: ''
+      });
+      // this.proInput.blur();
+      // this.resetState();
     }
   };
 
@@ -96,8 +106,11 @@ class ProConList extends Component {
   onAddConItemInputSubmit = e => {
     if (e.key === 'Enter') {
       this.props.addConToList(this.props.list, this.state.conVal);
-      this.conInput.blur();
-      this.resetState();
+      this.setState({
+        conVal: ''
+      });
+      // this.conInput.blur();
+      // this.resetState();
     }
   };
 
@@ -137,6 +150,7 @@ class ProConList extends Component {
                 value={list.label}
                 onChange={this.onHeadingLabelChange}
                 onKeyPress={this.submitLabelHeadingInput}
+                onBlur={this.handleListHeadingInputBlur}
               />
             </span>
             <button onClick={this.handleListDelete} className="listDelBtn">
