@@ -130,6 +130,19 @@ class ProConList extends Component {
     }
   };
 
+  // Handle item delete and edit
+  //Pro items
+  handleProItemDelete = pro => {
+    console.log(pro);
+  };
+
+  handleProItemEdit = () => {};
+
+  //Con items
+  handleConItemDelete = () => {};
+
+  handleConItemEdit = () => {};
+
   render() {
     let {
       proVal,
@@ -181,18 +194,22 @@ class ProConList extends Component {
               {list &&
                 list.pros &&
                 list.pros.map((pro, index) => (
-                  <div className="proConListGroup">
-                    <li key={index} className="proConListItem">
-                      {pro}
-                    </li>
-                    <button className=".iconButtonGroup">
+                  <div className="proConListGroup" key={index}>
+                    <li className="proConListItem">{pro}</li>
+                    <button
+                      className=".iconButtonGroup"
+                      onClick={() => this.handleProItemEdit(pro)}
+                    >
                       <img
                         src={PencilIcon}
                         alt="edit-icon"
                         className="editItemIcon"
                       />
                     </button>
-                    <button className=".iconButtonGroup">
+                    <button
+                      className=".iconButtonGroup"
+                      onClick={() => this.handleProItemDelete(pro)}
+                    >
                       <img
                         src={TrashIcon}
                         alt="trash-icon"
@@ -234,18 +251,22 @@ class ProConList extends Component {
               {list &&
                 list.cons &&
                 list.cons.map((con, index) => (
-                  <div className="proConListGroup">
-                    <li key={index} className="proConListItem">
-                      {con}
-                    </li>
-                    <button className=".iconButtonGroup">
+                  <div className="proConListGroup" key={index}>
+                    <li className="proConListItem">{con}</li>
+                    <button
+                      className=".iconButtonGroup"
+                      onClick={() => this.handleConItemEdit(con)}
+                    >
                       <img
                         src={PencilIcon}
                         alt="edit-icon"
                         className="editItemIcon"
                       />
                     </button>
-                    <button className=".iconButtonGroup">
+                    <button
+                      className=".iconButtonGroup"
+                      onClick={() => this.handleConItemDelete(con)}
+                    >
                       <img
                         src={TrashIcon}
                         alt="trash-icon"
