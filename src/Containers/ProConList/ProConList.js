@@ -166,7 +166,7 @@ class ProConList extends Component {
             <ul>
               {list &&
                 list.pros &&
-                list.pros.map(pro => <li key={pro}>{pro}</li>)}
+                list.pros.map((pro, index) => <li key={index}>{pro}</li>)}
               <li className="addListItem">
                 <button
                   className={
@@ -199,7 +199,7 @@ class ProConList extends Component {
             <ul>
               {list &&
                 list.cons &&
-                list.cons.map(con => <li key={con}>{con}</li>)}
+                list.cons.map((con, index) => <li key={index}>{con}</li>)}
               <li className="addListItem">
                 <button
                   className={
