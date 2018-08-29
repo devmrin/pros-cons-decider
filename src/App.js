@@ -4,7 +4,7 @@ import HomePage from './Containers/HomePage';
 class App extends Component {
   // custom loading
   loading() {
-    return new Promise(resolve => setTimeout(resolve, 1000));
+    return new Promise(resolve => setTimeout(resolve, 2000));
   }
 
   componentDidMount() {
