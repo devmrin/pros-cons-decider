@@ -10,8 +10,8 @@ class HomePage extends Component {
     lists: [
       {
         label: 'tap on title to edit',
-        pros: [],
-        cons: []
+        pros: ['hi'],
+        cons: ['bye']
       }
     ]
     // lists: []

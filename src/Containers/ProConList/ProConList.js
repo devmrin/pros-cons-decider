@@ -95,8 +95,6 @@ class ProConList extends Component {
       this.setState({
         proVal: ''
       });
-      // this.proInput.blur();
-      // this.resetState();
     }
   };
 
@@ -125,23 +123,27 @@ class ProConList extends Component {
       this.setState({
         conVal: ''
       });
-      // this.conInput.blur();
-      // this.resetState();
     }
   };
 
   // Handle item delete and edit
   //Pro items
-  handleProItemDelete = pro => {
-    console.log(pro);
+
+  handleProItemEdit = (pro, index) => {
+    console.log('edit ' + pro + ' at ' + index);
+  };
+  handleProItemDelete = (pro, index) => {
+    console.log('edit ' + pro + ' at ' + index);
   };
 
-  handleProItemEdit = () => {};
-
   //Con items
-  handleConItemDelete = () => {};
 
-  handleConItemEdit = () => {};
+  handleConItemEdit = (con, index) => {
+    console.log('edit ' + con + ' at ' + index);
+  };
+  handleConItemDelete = (con, index) => {
+    console.log('edit ' + con + ' at ' + index);
+  };
 
   render() {
     let {
@@ -198,7 +200,7 @@ class ProConList extends Component {
                     <li className="proConListItem">{pro}</li>
                     <button
                       className=".iconButtonGroup"
-                      onClick={() => this.handleProItemEdit(pro)}
+                      onClick={() => this.handleProItemEdit(pro, index)}
                     >
                       <img
                         src={PencilIcon}
@@ -208,7 +210,7 @@ class ProConList extends Component {
                     </button>
                     <button
                       className=".iconButtonGroup"
-                      onClick={() => this.handleProItemDelete(pro)}
+                      onClick={() => this.handleProItemDelete(pro, index)}
                     >
                       <img
                         src={TrashIcon}
@@ -255,7 +257,7 @@ class ProConList extends Component {
                     <li className="proConListItem">{con}</li>
                     <button
                       className=".iconButtonGroup"
-                      onClick={() => this.handleConItemEdit(con)}
+                      onClick={() => this.handleConItemEdit(con, index)}
                     >
                       <img
                         src={PencilIcon}
@@ -265,7 +267,7 @@ class ProConList extends Component {
                     </button>
                     <button
                       className=".iconButtonGroup"
-                      onClick={() => this.handleConItemDelete(con)}
+                      onClick={() => this.handleConItemDelete(con, index)}
                     >
                       <img
                         src={TrashIcon}
