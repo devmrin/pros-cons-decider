@@ -20,6 +20,177 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
+  <style>
+    body,
+    html {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      width: 100%
+    }
+
+    body {
+      margin: 0;
+      box-sizing: border-box;
+      padding: 0;
+      font-family: sans-serif;
+      background: black;
+      -webkit-font-smoothing: antialiased
+    }
+
+    .ipl-progress-indicator.available {
+      opacity: 0
+    }
+
+    .ipl-progress-indicator {
+      background-color: #f5f5f5;
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      opacity: 1;
+      pointer-events: none;
+      -webkit-transition: opacity cubic-bezier(.4, 0, .2, 1) 436ms;
+      -moz-transition: opacity cubic-bezier(.4, 0, .2, 1) 436ms;
+      transition: opacity cubic-bezier(.4, 0, .2, 1) 436ms;
+      z-index: 9999
+    }
+
+    .insp-logo-frame {
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: flex;
+      -webkit-flex-direction: column;
+      -moz-flex-direction: column;
+      flex-direction: column;
+      -webkit-justify-content: center;
+      -moz-justify-content: center;
+      justify-content: center;
+      -webkit-animation: fadein 436ms;
+      -moz-animation: fadein 436ms;
+      animation: fadein 436ms;
+      height: 98%
+    }
+
+    .insp-logo-frame-img {
+      width: 112px;
+      height: 112px;
+      -webkit-align-self: center;
+      -moz-align-self: center;
+      align-self: center
+    }
+
+    .ipl-progress-indicator-head {
+      background-color: #c6dafc;
+      height: 4px;
+      overflow: hidden;
+      position: relative
+    }
+
+    .ipl-progress-indicator .first-indicator,
+    .ipl-progress-indicator .second-indicator {
+      background-color: #03a9f4;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      top: 0;
+      position: absolute;
+      -webkit-transform-origin: left center;
+      -moz-transform-origin: left center;
+      transform-origin: left center;
+      -webkit-transform: scaleX(0);
+      -moz-transform: scaleX(0);
+      transform: scaleX(0)
+    }
+
+    .ipl-progress-indicator .first-indicator {
+      -webkit-animation: first-indicator 2s linear infinite;
+      -moz-animation: first-indicator 2s linear infinite;
+      animation: first-indicator 2s linear infinite
+    }
+
+    .ipl-progress-indicator .second-indicator {
+      -webkit-animation: second-indicator 2s linear infinite;
+      -moz-animation: second-indicator 2s linear infinite;
+      animation: second-indicator 2s linear infinite
+    }
+
+    .ipl-progress-indicator .insp-logo {
+      animation: App-logo-spin infinite 20s linear;
+      border-radius: 50%;
+      -webkit-align-self: center;
+      -moz-align-self: center;
+      align-self: center
+    }
+
+    @keyframes App-logo-spin {
+      from {
+        transform: rotate(0)
+      }
+      to {
+        transform: rotate(360deg)
+      }
+    }
+
+    @-webkit-keyframes fadein {
+      from {
+        opacity: 0
+      }
+      to {
+        opacity: 1
+      }
+    }
+
+    @-moz-keyframes fadein {
+      from {
+        opacity: 0
+      }
+      to {
+        opacity: 1
+      }
+    }
+
+    @keyframes fadein {
+      from {
+        opacity: 0
+      }
+      to {
+        opacity: 1
+      }
+    }
+
+    @keyframes first-indicator {
+      0% {
+        transform: translate(0) scaleX(0)
+      }
+      25% {
+        transform: translate(0) scaleX(.5)
+      }
+      50% {
+        transform: translate(25%) scaleX(.75)
+      }
+      75% {
+        transform: translate(100%) scaleX(0)
+      }
+      100% {
+        transform: translate(100%) scaleX(0)
+      }
+    }
+
+    @keyframes second-indicator {
+      0% {
+        transform: translate(0) scaleX(0)
+      }
+      60% {
+        transform: translate(0) scaleX(0)
+      }
+      80% {
+        transform: translate(0) scaleX(.6)
+      }
+      100% {
+        transform: translate(100%) scaleX(.1)
+      }
+    }
+  </style>
   <title>Decide | Multiple Pros-Cons Editor</title>
 </head>
 
@@ -27,6 +198,52 @@
   <noscript>
     You need to enable JavaScript to run this app.
   </noscript>
+  <div class="ipl-progress-indicator" id="ipl-progress-indicator">
+    <div class="ipl-progress-indicator-head">
+      <div class="first-indicator"></div>
+      <div class="second-indicator"></div>
+    </div>
+    <div class="insp-logo-frame"><svg width="112" class="insp-logo-frame-img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64.62 54.12"><defs>
+          <style>
+            .a,
+            .c {
+              fill: #03a9f4
+            }
+
+            .b,
+            .c,
+            .d {
+              stroke: none
+            }
+          </style>
+        </defs>
+        <g transform="translate(-83.08 -20.88)">
+          <g class="a" transform="translate(111 49.266)">
+            <path class="b" d="M 36.19121932983398 25.06477165222168 L 14.57523536682129 18.74527549743652 L 14.01159572601318 -27.6562671661377 L 35.61502075195312 -21.23272323608398 L 36.19121932983398 25.06477165222168 Z"
+            />
+            <path class="c" d="M 35.6828498840332 24.39521789550781 L 35.11964416503906 -20.85837364196777 L 14.51981163024902 -26.98351097106934 L 15.07071113586426 18.36919975280762 L 35.6828498840332 24.39521789550781 M 36.69958877563477 25.73432159423828 L 14.0797700881958 19.12135124206543 L 13.50339031219482 -28.32900810241699 L 36.11040115356445 -21.60705757141113 L 36.69958877563477 25.73432159423828 Z"
+            />
+          </g>
+          <g transform="translate(136.687 49.266)">
+            <path class="b" d="M -11.23523330688477 18.68624687194824 L -32.19605255126953 12.69141674041748 L -11.96518135070801 -27.78603172302246 L 9.671352386474609 -21.32375526428223 L -11.23523330688477 18.68624687194824 Z"
+            />
+            <path class="d" d="M -11.4896240234375 18.09344863891602 L 8.947501182556152 -21.01812362670898 L -11.70574951171875 -27.18671989440918 L -31.47957801818848 12.37628746032715 L -11.4896240234375 18.09344863891602 M -10.98084735870361 19.279052734375 L -32.91253662109375 13.00655364990234 L -12.22461700439453 -28.38534545898438 L 10.39520263671875 -21.62938690185547 L -10.98084735870361 19.279052734375 Z"
+            />
+          </g>
+          <g class="a" transform="translate(82.691 55.218)">
+            <path class="b" d="M 42.01563262939453 12.57137584686279 L 14.62844848632812 5.48894214630127 L 13.99114608764648 -29.40836334228516 L 22.7021369934082 -27.12240028381348 L 42.01563262939453 12.57137584686279 Z"
+            />
+            <path class="c" d="M 41.09209442138672 11.81610012054443 L 22.3530330657959 -26.69707679748535 L 14.50311660766602 -28.7570743560791 L 15.12142276763916 5.099982261657715 L 41.09209442138672 11.81610012054443 M 42.93916702270508 13.32665634155273 L 14.13546562194824 5.877906799316406 L 13.47916603088379 -30.05964279174805 L 23.05123519897461 -27.5477123260498 L 42.93916702270508 13.32665634155273 Z"
+            />
+          </g>
+          <g transform="translate(69 49.266)">
+            <path class="b" d="M 36.19959259033203 25.06721115112305 L 14.57977294921875 18.74660301208496 L 14.57977294921875 -27.71418190002441 L 36.19959259033203 -21.25689506530762 L 36.19959259033203 25.06721115112305 Z"
+            />
+            <path class="d" d="M 35.69959259033203 24.40010452270508 L 35.69959259033203 -20.8844051361084 L 15.07977294921875 -27.04301643371582 L 15.07977294921875 18.37184906005859 L 35.69959259033203 24.40010452270508 M 36.69959259033203 25.73431396484375 L 14.07977294921875 19.1213550567627 L 14.07977294921875 -28.38534545898438 L 36.69959259033203 -21.62938499450684 L 36.69959259033203 25.73431396484375 Z"
+            />
+          </g>
+        </g></svg></div>
+  </div>
   <div id="root"></div>
   <!--
       This HTML file is a template.

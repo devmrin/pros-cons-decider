@@ -6,15 +6,16 @@ import NoList from '../../assets/images/NoLists.svg';
 
 const EmptyState = () => (
   <div className="EmptyStateContainer">
-    <h1 className="emptyHeading">so quiet...</h1>
+    <h1 className="emptyHeading">wow! so quiet...</h1>
     <img src={NoList} alt="no-lists" />
     <h2 className="instructionHeading">
-      Click on the "{' '}
+      Click the "{' '}
       <img className="instructionPlusIcon" src={PlusIcon} alt="plus-icon" /> "
       icon on the <span className="instructionBoldText"> top-right </span> to
-      create a new <span className="instructionBoldText">pros&cons</span> list.
+      create a new <span className="instructionBoldText">pros & cons</span>{' '}
+      list.
       <br />
-      You can view upto 4 lists simultaneously.
+      You can view up to 4 lists simultaneously.
     </h2>
   </div>
 );

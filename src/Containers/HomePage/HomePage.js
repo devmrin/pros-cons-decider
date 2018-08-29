@@ -9,27 +9,16 @@ class HomePage extends Component {
   state = {
     lists: [
       {
-        label: '1',
-        pros: ['hi'],
-        cons: ['bye']
+        label: 'Samsung S9',
+        pros: ['great display'],
+        cons: ['poor battery life']
       },
       {
-        label: '2',
-        pros: ['hi'],
-        cons: ['bye']
-      },
-      {
-        label: '3',
-        pros: ['hi'],
-        cons: ['bye']
-      },
-      {
-        label: '4',
-        pros: ['hi'],
-        cons: ['bye']
+        label: 'iPhone X',
+        pros: ['supreme screen real-estate'],
+        cons: ['notch']
       }
     ]
-    // lists: []
   };
 
   createNewList = label => {
