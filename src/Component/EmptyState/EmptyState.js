@@ -9,7 +9,8 @@ const EmptyState = () => (
     <h1 className="emptyHeading">so quiet...</h1>
     <img src={NoList} alt="no-lists" />
     <h2 className="instructionHeading">
-      Click on the " <img className="instructionPlusIcon" src={PlusIcon} /> "
+      Click on the "{' '}
+      <img className="instructionPlusIcon" src={PlusIcon} alt="plus-icon" /> "
       icon on the <span className="instructionBoldText"> top-right </span> to
       create a new <span className="instructionBoldText">pros&cons</span> list.
       <br />

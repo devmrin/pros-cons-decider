@@ -56,7 +56,11 @@ class Header extends Component {
             className={showInput ? 'addButton rotate' : 'addButton'}
             onClick={this.onAddButtonClick}
           >
-            <img className=" headerPlusIcon" src={PlusIcon} />
+            <img
+              className=" headerPlusIcon"
+              src={PlusIcon}
+              alt="create new list - plus icon"
+            />
           </button>
         </div>
       </div>

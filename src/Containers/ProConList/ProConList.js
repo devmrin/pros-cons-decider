@@ -141,6 +141,7 @@ class ProConList extends Component {
                     ? 'listHeadingPen hide'
                     : 'listHeadingPen'
                 }
+                alt="edit heading - pen icon"
               />
               <input
                 type="text"
