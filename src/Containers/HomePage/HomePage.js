@@ -9,7 +9,22 @@ class HomePage extends Component {
   state = {
     lists: [
       {
-        label: 'tap on title to edit',
+        label: '1',
+        pros: ['hi'],
+        cons: ['bye']
+      },
+      {
+        label: '2',
+        pros: ['hi'],
+        cons: ['bye']
+      },
+      {
+        label: '3',
+        pros: ['hi'],
+        cons: ['bye']
+      },
+      {
+        label: '4',
         pros: ['hi'],
         cons: ['bye']
       }
@@ -30,28 +45,28 @@ class HomePage extends Component {
 
   removeAList = label => {
     alert('remove ' + label);
-    let updatedList = this.state.lists.filter(list => list.label !== label);
+    let updatedLists = this.state.lists.filter(list => list.label !== label);
     this.setState({
-      lists: [...updatedList]
+      lists: [...updatedLists]
     });
   };
 
   changeListLabelHeading = (selectedList, label) => {
-    let updatedList = this.state.lists.map(list => {
+    let updatedLists = this.state.lists.map(list => {
       if (list.label === selectedList.label) {
         list.label = label;
       }
       return list;
     });
     this.setState({
-      lists: updatedList
+      lists: updatedLists
     });
   };
 
   //add pro list item
   addProToList = (selectedList, val) => {
     // alert(`add ${val} as pro to ${selectedList.label} list.`);
-    let updatedList = this.state.lists.map(list => {
+    let updatedLists = this.state.lists.map(list => {
       if (list.label === selectedList.label) {
         if (list.pros.length < 15) {
           list.pros = [...list.pros, val];
@@ -64,14 +79,14 @@ class HomePage extends Component {
       return list;
     });
     this.setState({
-      lists: updatedList
+      lists: updatedLists
     });
   };
 
   //add con list item
   addConToList = (selectedList, val) => {
     // alert(`add ${val} as con to ${selectedList.label} list.`);
-    let updatedList = this.state.lists.map(list => {
+    let updatedLists = this.state.lists.map(list => {
       if (list.label === selectedList.label) {
         if (list.cons.length < 15) {
           list.cons = [...list.cons, val];
@@ -84,7 +99,34 @@ class HomePage extends Component {
       return list;
     });
     this.setState({
-      lists: updatedList
+      lists: updatedLists
+    });
+  };
+
+  //individual pro/con item delete
+  //Pro items
+  handleProItemDelete = (selectedList, pro, index) => {
+    let updatedLists = this.state.lists.map(list => {
+      if (list.label === selectedList.label) {
+        list.pros.splice(index, 1);
+      }
+      return list;
+    });
+    this.setState({
+      lists: updatedLists
+    });
+  };
+
+  //Con items
+  handleConItemDelete = (selectedList, con, index) => {
+    let updatedLists = this.state.lists.map(list => {
+      if (list.label === selectedList.label) {
+        list.cons.splice(index, 1);
+      }
+      return list;
+    });
+    this.setState({
+      lists: updatedLists
     });
   };
 
@@ -102,6 +144,8 @@ class HomePage extends Component {
                 removeAList={this.removeAList}
                 addProToList={this.addProToList}
                 addConToList={this.addConToList}
+                handleProItemDelete={this.handleProItemDelete}
+                handleConItemDelete={this.handleConItemDelete}
                 list={list}
               />
             ))

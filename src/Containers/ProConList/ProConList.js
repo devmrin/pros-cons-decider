@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-import PenIcon from '../../assets/icons/pen.svg';
 import PencilIcon from '../../assets/icons/pencil-alt.svg';
 import TrashIcon from '../../assets/icons/trash.svg';
 
@@ -126,25 +125,6 @@ class ProConList extends Component {
     }
   };
 
-  // Handle item delete and edit
-  //Pro items
-
-  handleProItemEdit = (pro, index) => {
-    console.log('edit ' + pro + ' at ' + index);
-  };
-  handleProItemDelete = (pro, index) => {
-    console.log('edit ' + pro + ' at ' + index);
-  };
-
-  //Con items
-
-  handleConItemEdit = (con, index) => {
-    console.log('edit ' + con + ' at ' + index);
-  };
-  handleConItemDelete = (con, index) => {
-    console.log('edit ' + con + ' at ' + index);
-  };
-
   render() {
     let {
       proVal,
@@ -164,7 +144,7 @@ class ProConList extends Component {
             >
               {showLabelHeadingInput ? '' : list && list.label}
               <img
-                src={PenIcon}
+                src={PencilIcon}
                 className={
                   showLabelHeadingInput
                     ? 'listHeadingPen hide'
@@ -200,17 +180,9 @@ class ProConList extends Component {
                     <li className="proConListItem">{pro}</li>
                     <button
                       className=".iconButtonGroup"
-                      onClick={() => this.handleProItemEdit(pro, index)}
-                    >
-                      <img
-                        src={PencilIcon}
-                        alt="edit-icon"
-                        className="editItemIcon"
-                      />
-                    </button>
-                    <button
-                      className=".iconButtonGroup"
-                      onClick={() => this.handleProItemDelete(pro, index)}
+                      onClick={() =>
+                        this.props.handleProItemDelete(list, pro, index)
+                      }
                     >
                       <img
                         src={TrashIcon}
@@ -257,17 +229,9 @@ class ProConList extends Component {
                     <li className="proConListItem">{con}</li>
                     <button
                       className=".iconButtonGroup"
-                      onClick={() => this.handleConItemEdit(con, index)}
-                    >
-                      <img
-                        src={PencilIcon}
-                        alt="edit-icon"
-                        className="editItemIcon"
-                      />
-                    </button>
-                    <button
-                      className=".iconButtonGroup"
-                      onClick={() => this.handleConItemDelete(con, index)}
+                      onClick={() =>
+                        this.props.handleConItemDelete(list, con, index)
+                      }
                     >
                       <img
                         src={TrashIcon}

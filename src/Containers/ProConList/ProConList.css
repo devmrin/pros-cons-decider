@@ -116,18 +116,9 @@
   opacity: 0.5;
 }
 
-.editItemIcon {
-  height: 12px;
-  margin-left: 10px;
-  transition: opacity 0.2s ease-in;
-}
-
-.editItemIcon:hover {
-  opacity: 0.4;
-}
-
 .deleteItemIcon {
   height: 12px;
+  margin-left: 10px;
   transition: opacity 0.2s ease-in;
 }
 
