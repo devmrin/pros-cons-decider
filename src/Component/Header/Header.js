@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+
+import PlusIcon from '../../assets/icons/plus.svg';
 import './Header.css';
 
 class Header extends Component {
@@ -54,7 +56,7 @@ class Header extends Component {
             className={showInput ? 'addButton rotate' : 'addButton'}
             onClick={this.onAddButtonClick}
           >
-            <i className="fas fa-plus plusIcon" />
+            <img className=" headerPlusIcon" src={PlusIcon} />
           </button>
         </div>
       </div>

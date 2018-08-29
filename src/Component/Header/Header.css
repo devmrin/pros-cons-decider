@@ -26,14 +26,14 @@
   transform: rotate(45deg);
 }
 
-.plusIcon {
-  font-size: 1.5rem;
+.headerPlusIcon {
+  height: 22px;
 }
 
 .labelInput {
   border-radius: 2px;
   outline: black;
-  margin-right: 10px;
+  margin-right: 5px;
   font-family: sans-serif;
   font-size: 1rem;
   height: 20px;
