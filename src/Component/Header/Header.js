@@ -21,10 +21,18 @@ class Header extends Component {
   };
 
   handleLabelInput = e => {
-    this.setState({
-      labelInput: e.target.value
-    });
-    // console.log(e.target);
+    if (e.target.value.length > 40) {
+      this.props.createNewList(this.state.labelInput);
+      this.setState({
+        showInput: false,
+        labelInput: ''
+      });
+      alert('Please keep the titles concise.');
+    } else {
+      this.setState({
+        labelInput: e.target.value
+      });
+    }
   };
 
   handleLabelSubmit = e => {
