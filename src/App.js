@@ -3,6 +3,10 @@ import HomePage from './Containers/HomePage';
 import AlertBox from './Component/AlertBox';
 
 class App extends Component {
+  state = {
+    showAlertBox: true
+  };
+
   // custom loading
   loading() {
     return new Promise(resolve => setTimeout(resolve, 2000));
@@ -18,15 +22,19 @@ class App extends Component {
         setTimeout(() => {
           // remove from DOM
           ele.outerHTML = '';
-        }, 2000);
+        }, 0);
       }
     });
   }
+
+  //Alert Box Handle
+
   render() {
+    let { showAlertBox } = this.state;
     return (
       <div className="App">
-        <AlertBox />
-        <HomePage />
+        <AlertBox show={showAlertBox} />
+        <HomePage showAlertBox={showAlertBox} />
       </div>
     );
   }
