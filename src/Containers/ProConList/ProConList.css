@@ -21,6 +21,7 @@
 .listLabelHeading {
   cursor: pointer;
   position: relative;
+  word-break: break-all;
   height: 50px;
   z-index: 100;
   display: flex;
@@ -114,6 +115,10 @@
 
 .proConListGroup:hover > button {
   opacity: 0.5;
+}
+
+.proConListItem {
+  word-break: break-all;
 }
 
 .deleteItemIcon {
