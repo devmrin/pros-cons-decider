@@ -6,11 +6,7 @@ class AlertBox extends Component {
   render() {
     let { show } = this.props;
     return (
-      <div
-        className={
-          show ? 'alertBackground' : 'alertBackground hideAlertBackground'
-        }
-      >
+      <div className={show ? 'alertBackground' : 'hideAlertBackground'}>
         <div className="alertWrapper">
           <div className="alertBox">
             <p className="alertMsgText">Are you sure you want to continue ?</p>
