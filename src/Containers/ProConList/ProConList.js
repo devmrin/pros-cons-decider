@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import ReactDragList from 'react-drag-list';
+
 import PencilIcon from '../../assets/icons/pencil-alt.svg';
 import TrashIcon from '../../assets/icons/trash.svg';
 
@@ -174,24 +176,30 @@ class ProConList extends Component {
             <div className="proconsHeading">PROS</div>
             <ul>
               {list &&
-                list.pros &&
-                list.pros.map((pro, index) => (
-                  <div className="proConListGroup" key={index}>
-                    <li className="proConListItem">{pro}</li>
-                    <button
-                      className=".iconButtonGroup"
-                      onClick={() =>
-                        this.props.handleProItemDelete(list, pro, index)
-                      }
-                    >
-                      <img
-                        src={TrashIcon}
-                        alt="trash-icon"
-                        className="deleteItemIcon"
-                      />
-                    </button>
-                  </div>
-                ))}
+                list.pros && (
+                  <ReactDragList
+                    dataSource={list.pros}
+                    ghostClass="ghostClass"
+                    handles={false}
+                    row={(pro, index) => (
+                      <div className="proConListGroup" key={index}>
+                        <li className="proConListItem">{pro}</li>
+                        <button
+                          className=".iconButtonGroup"
+                          onClick={() =>
+                            this.props.handleProItemDelete(list, pro, index)
+                          }
+                        >
+                          <img
+                            src={TrashIcon}
+                            alt="trash-icon"
+                            className="deleteItemIcon"
+                          />
+                        </button>
+                      </div>
+                    )}
+                  />
+                )}
               <li className="addListItem">
                 <button
                   className={
@@ -223,24 +231,30 @@ class ProConList extends Component {
             <div className="proconsHeading">CONS</div>
             <ul>
               {list &&
-                list.cons &&
-                list.cons.map((con, index) => (
-                  <div className="proConListGroup" key={index}>
-                    <li className="proConListItem">{con}</li>
-                    <button
-                      className=".iconButtonGroup"
-                      onClick={() =>
-                        this.props.handleConItemDelete(list, con, index)
-                      }
-                    >
-                      <img
-                        src={TrashIcon}
-                        alt="trash-icon"
-                        className="deleteItemIcon"
-                      />
-                    </button>
-                  </div>
-                ))}
+                list.cons && (
+                  <ReactDragList
+                    dataSource={list.cons}
+                    ghostClass="ghostClass"
+                    handles={false}
+                    row={(con, index) => (
+                      <div className="proConListGroup" key={index}>
+                        <li className="proConListItem">{con}</li>
+                        <button
+                          className=".iconButtonGroup"
+                          onClick={() =>
+                            this.props.handleConItemDelete(list, con, index)
+                          }
+                        >
+                          <img
+                            src={TrashIcon}
+                            alt="trash-icon"
+                            className="deleteItemIcon"
+                          />
+                        </button>
+                      </div>
+                    )}
+                  />
+                )}
               <li className="addListItem">
                 <button
                   className={

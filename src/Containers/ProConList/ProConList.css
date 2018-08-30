@@ -97,6 +97,10 @@
   opacity: 0.03;
 }
 
+.ghostClass {
+  opacity: 0;
+}
+
 .proConListGroup {
   display: flex;
   align-items: center;
