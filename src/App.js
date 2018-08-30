@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import HomePage from './Containers/HomePage';
+import AlertBox from './Component/AlertBox';
 
 class App extends Component {
   // custom loading
@@ -24,6 +25,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <AlertBox />
         <HomePage />
       </div>
     );
