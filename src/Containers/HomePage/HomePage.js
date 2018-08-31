@@ -20,7 +20,9 @@ class HomePage extends Component {
         cons: ['notch']
       }
     ],
-    showAlertBox: false
+    showAlertBox: false,
+    alertMsg: '',
+    hideAlertBtnGroup: false
   };
 
   createNewList = label => {
@@ -30,16 +32,19 @@ class HomePage extends Component {
         lists: [...this.state.lists, { label, pros: [], cons: [] }]
       });
     } else {
-      alert('Currently only 4 lists are supported!');
+      this.updateAlert('Currently only 4 lists are supported. 🐶');
     }
   };
 
   removeAList = label => {
-    alert('remove ' + label);
-    let updatedLists = this.state.lists.filter(list => list.label !== label);
-    this.setState({
-      lists: [...updatedLists]
-    });
+    this.updateAlert(`Removed ${label}`);
+    setTimeout(() => {
+      let updatedLists = this.state.lists.filter(list => list.label !== label);
+      this.setState({
+        lists: [...updatedLists]
+      });
+      this.handleAlertDismiss();
+    }, 1000);
   };
 
   changeListLabelHeading = (selectedList, label) => {
@@ -121,11 +126,35 @@ class HomePage extends Component {
     });
   };
 
+  //Alert actions
+
+  updateAlert = msg => {
+    this.setState({
+      showAlertBox: true,
+      alertMsg: msg,
+      hideAlertBtnGroup: true
+    });
+  };
+
+  handleAlertDismiss = () => {
+    this.setState({
+      showAlertBox: false,
+      alertMsg: '',
+      hideAlertBtnGroup: false
+    });
+  };
+
   render() {
-    let { lists, showAlertBox } = this.state;
+    let { lists, showAlertBox, alertMsg, hideAlertBtnGroup } = this.state;
     return (
       <Fragment>
-        <AlertBox show={showAlertBox} />
+        <AlertBox
+          show={showAlertBox}
+          msg={alertMsg}
+          hideBtnGroup={hideAlertBtnGroup}
+          onSubmit={this.handleAlertSubmit}
+          onDismiss={this.handleAlertDismiss}
+        />
         <div className="HomePage">
           <Header createNewList={this.createNewList} />
           <div className="listContainer">

@@ -6,9 +6,12 @@ class AlertBox extends Component {
   render() {
     let { show, msg, hideBtnGroup, onSubmit, onDismiss } = this.props;
     return (
-      <div className={show ? 'alertBackground' : 'hideAlertBackground'}>
+      <div
+        className={show ? 'alertBackground' : 'hideAlertBackground'}
+        onClick={onDismiss}
+      >
         <div className="alertWrapper">
-          <div className="alertBox">
+          <div className="alertBox" onClick={e => e.stopPropagation()}>
             <p className="alertMsgText">{msg}</p>
             {hideBtnGroup ? null : (
               <div className="alertBtnContainer">
