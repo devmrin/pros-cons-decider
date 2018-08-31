@@ -127,6 +127,16 @@ class ProConList extends Component {
     }
   };
 
+  //rearrange proconlist on update
+  handleDragUpdate = (e, type) => {
+    this.props.onDragUpdate(
+      this.props.list.label,
+      type,
+      e.newIndex,
+      e.oldIndex
+    );
+  };
+
   render() {
     let {
       proVal,
@@ -178,6 +188,7 @@ class ProConList extends Component {
               {list &&
                 list.pros && (
                   <ReactDragList
+                    onUpdate={e => this.handleDragUpdate(e, 'pro')}
                     dataSource={list.pros}
                     ghostClass="ghostClass"
                     handles={false}
@@ -233,6 +244,7 @@ class ProConList extends Component {
               {list &&
                 list.cons && (
                   <ReactDragList
+                    onUpdate={e => this.handleDragUpdate(e, 'con')}
                     dataSource={list.cons}
                     ghostClass="ghostClass"
                     handles={false}

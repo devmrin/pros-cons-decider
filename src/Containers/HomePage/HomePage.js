@@ -119,8 +119,31 @@ class HomePage extends Component {
     });
   };
 
-  //Alert actions
+  //Handle Drag
+  onDragUpdate = (label, type, oldIndex, newIndex) => {
+    this.state.lists.map(list => {
+      if (list.label === label) {
+        if (type === 'pro') {
+          let updatedPros = list.pros.slice();
+          let temp = updatedPros[oldIndex];
+          updatedPros[oldIndex] = updatedPros[newIndex];
+          updatedPros[newIndex] = temp;
+          list.pros = [...updatedPros];
+        } else {
+          let updatedCons = list.cons.slice();
+          let temp = updatedCons[oldIndex];
+          updatedCons[oldIndex] = updatedCons[newIndex];
+          updatedCons[newIndex] = temp;
+          list.cons = [...updatedCons];
+        }
+        return list;
+      } else {
+        return list;
+      }
+    });
+  };
 
+  //Alert actions
   updateAlert = msg => {
     this.setState({
       showAlertBox: true,
@@ -165,6 +188,7 @@ class HomePage extends Component {
                   addConToList={this.addConToList}
                   handleProItemDelete={this.handleProItemDelete}
                   handleConItemDelete={this.handleConItemDelete}
+                  onDragUpdate={this.onDragUpdate}
                   updateAlert={this.updateAlert}
                   list={list}
                 />
