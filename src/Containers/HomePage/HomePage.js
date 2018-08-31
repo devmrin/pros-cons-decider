@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import ProConList from '../ProConList';
+import AlertBox from '../../Component/AlertBox';
 import Header from '../../Component/Header';
 import EmptyState from '../../Component/EmptyState';
 
@@ -18,7 +19,8 @@ class HomePage extends Component {
         pros: ['supreme screen real-estate'],
         cons: ['notch']
       }
-    ]
+    ],
+    showAlertBox: false
   };
 
   createNewList = label => {
@@ -120,29 +122,32 @@ class HomePage extends Component {
   };
 
   render() {
-    let { lists } = this.state;
+    let { lists, showAlertBox } = this.state;
     return (
-      <div className="HomePage">
-        <Header createNewList={this.createNewList} />
-        <div className="listContainer">
-          {lists && lists.length >= 1 ? (
-            lists.map((list, index) => (
-              <ProConList
-                key={index}
-                changeListLabelHeading={this.changeListLabelHeading}
-                removeAList={this.removeAList}
-                addProToList={this.addProToList}
-                addConToList={this.addConToList}
-                handleProItemDelete={this.handleProItemDelete}
-                handleConItemDelete={this.handleConItemDelete}
-                list={list}
-              />
-            ))
-          ) : (
-            <EmptyState />
-          )}
+      <Fragment>
+        <AlertBox show={showAlertBox} />
+        <div className="HomePage">
+          <Header createNewList={this.createNewList} />
+          <div className="listContainer">
+            {lists && lists.length >= 1 ? (
+              lists.map((list, index) => (
+                <ProConList
+                  key={index}
+                  changeListLabelHeading={this.changeListLabelHeading}
+                  removeAList={this.removeAList}
+                  addProToList={this.addProToList}
+                  addConToList={this.addConToList}
+                  handleProItemDelete={this.handleProItemDelete}
+                  handleConItemDelete={this.handleConItemDelete}
+                  list={list}
+                />
+              ))
+            ) : (
+              <EmptyState />
+            )}
+          </div>
         </div>
-      </div>
+      </Fragment>
     );
   }
 }
