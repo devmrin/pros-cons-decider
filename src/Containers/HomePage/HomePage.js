@@ -32,18 +32,17 @@ class HomePage extends Component {
         lists: [...this.state.lists, { label, pros: [], cons: [] }]
       });
     } else {
-      this.updateAlert('Currently only 4 lists are supported. 🐶');
+      this.updateAlert('Currently only 4 lists are supported.');
     }
   };
 
   removeAList = label => {
-    this.updateAlert(`Removed ${label}`);
+    this.updateAlert(`Removing ${label}...`);
     setTimeout(() => {
       let updatedLists = this.state.lists.filter(list => list.label !== label);
       this.setState({
         lists: [...updatedLists]
       });
-      this.handleAlertDismiss();
     }, 1000);
   };
 
@@ -134,6 +133,7 @@ class HomePage extends Component {
       alertMsg: msg,
       hideAlertBtnGroup: true
     });
+    setTimeout(() => this.handleAlertDismiss(), 1000);
   };
 
   handleAlertDismiss = () => {
@@ -168,6 +168,7 @@ class HomePage extends Component {
                   addConToList={this.addConToList}
                   handleProItemDelete={this.handleProItemDelete}
                   handleConItemDelete={this.handleConItemDelete}
+                  updateAlert={this.updateAlert}
                   list={list}
                 />
               ))

@@ -31,7 +31,7 @@ class ProConList extends Component {
 
   onHeadingLabelChange = e => {
     if (e.target.value.length > 28) {
-      alert('Please keep the titles concise.');
+      this.props.updateAlert('Please keep the title concise.');
     } else {
       this.props.changeListLabelHeading(this.props.list, e.target.value);
     }
@@ -86,7 +86,7 @@ class ProConList extends Component {
     });
     if (e.target.value.length > 120) {
       this.props.addProToList(this.props.list, this.state.proVal);
-      alert('Please keep your points short.');
+      this.props.updateAlert('Please keep your points short.');
     }
   };
 
@@ -114,7 +114,7 @@ class ProConList extends Component {
     });
     if (e.target.value.length > 120) {
       this.props.addConToList(this.props.list, this.state.conVal);
-      alert('Please keep your points short.');
+      this.props.updateAlert('Please keep your points short.');
     }
   };
 
