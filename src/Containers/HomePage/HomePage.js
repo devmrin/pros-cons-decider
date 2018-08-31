@@ -60,15 +60,12 @@ class HomePage extends Component {
 
   //add pro list item
   addProToList = (selectedList, val) => {
-    // alert(`add ${val} as pro to ${selectedList.label} list.`);
     let updatedLists = this.state.lists.map(list => {
       if (list.label === selectedList.label) {
         if (list.pros.length < 15) {
           list.pros = [...list.pros, val];
         } else {
-          alert(
-            "If you need to add that many pros - maybe you're not doing it right"
-          );
+          this.updateAlert('Too many pros. Pick only what matters!');
         }
       }
       return list;
@@ -80,15 +77,12 @@ class HomePage extends Component {
 
   //add con list item
   addConToList = (selectedList, val) => {
-    // alert(`add ${val} as con to ${selectedList.label} list.`);
     let updatedLists = this.state.lists.map(list => {
       if (list.label === selectedList.label) {
         if (list.cons.length < 15) {
           list.cons = [...list.cons, val];
         } else {
-          alert(
-            "If you need to add that many cons - you're not really doing it right"
-          );
+          this.updateAlert('Too many cons. Pick only what matters!');
         }
       }
       return list;
@@ -156,7 +150,10 @@ class HomePage extends Component {
           onDismiss={this.handleAlertDismiss}
         />
         <div className="HomePage">
-          <Header createNewList={this.createNewList} />
+          <Header
+            createNewList={this.createNewList}
+            updateAlert={this.updateAlert}
+          />
           <div className="listContainer">
             {lists && lists.length >= 1 ? (
               lists.map((list, index) => (

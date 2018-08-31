@@ -27,7 +27,7 @@ class Header extends Component {
         showInput: false,
         labelInput: ''
       });
-      alert('Please keep the titles concise.');
+      this.props.updateAlert('Keep your title short.');
     } else {
       this.setState({
         labelInput: e.target.value
