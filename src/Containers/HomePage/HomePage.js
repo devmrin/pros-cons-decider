@@ -8,18 +8,7 @@ import './HomePage.css';
 
 class HomePage extends Component {
   state = {
-    lists: [
-      {
-        label: 'Samsung S9',
-        pros: ['great display'],
-        cons: ['poor battery life']
-      },
-      {
-        label: 'iPhone X',
-        pros: ['supreme screen real-estate'],
-        cons: ['notch']
-      }
-    ],
+    lists: [],
     showAlertBox: false,
     alertMsg: '',
     hideAlertBtnGroup: false
