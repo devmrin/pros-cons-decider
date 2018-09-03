@@ -27,12 +27,16 @@ class HomePage extends Component {
     });
   }
 
-  // componentDidMount() {
-  //   docRef &&
-  //     docRef.set({
-  //       lists: this.state.lists
-  //     });
-  // }
+  componentDidMount() {
+    docRef &&
+      docRef.get().then(doc => {
+        if (doc && doc.exists) {
+          this.setState({
+            lists: doc.data().lists
+          });
+        }
+      });
+  }
 
   componentDidUpdate() {
     docRef &&
