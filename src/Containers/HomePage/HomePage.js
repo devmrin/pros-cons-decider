@@ -22,7 +22,7 @@ class HomePage extends Component {
     let firestore = fire.firestore();
     let docRef = firestore.doc('pros-cons-data/state');
     this.docRef = docRef;
-    docRef.get().then(doc => {
+    docRef.onSnapshot(doc => {
       if (doc && doc.exists) {
         this.setState({
           lists: doc.data().lists
