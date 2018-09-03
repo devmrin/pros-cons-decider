@@ -4,6 +4,8 @@ import AlertBox from '../../Component/AlertBox';
 import Header from '../../Component/Header';
 import EmptyState from '../../Component/EmptyState';
 
+import fire from '../../firebase';
+
 import './HomePage.css';
 
 class HomePage extends Component {
@@ -13,6 +15,28 @@ class HomePage extends Component {
     alertMsg: '',
     hideAlertBtnGroup: false
   };
+
+  docRef = null;
+
+  componentDidMount() {
+    let firestore = fire.firestore();
+    let docRef = firestore.doc('pros-cons-data/state');
+    this.docRef = docRef;
+    docRef.get().then(doc => {
+      if (doc && doc.exists) {
+        this.setState({
+          lists: doc.data().lists
+        });
+      }
+    });
+  }
+
+  componentDidUpdate() {
+    this.docRef &&
+      this.docRef.set({
+        lists: this.state.lists
+      });
+  }
 
   createNewList = label => {
     let { lists } = this.state;
