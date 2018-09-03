@@ -4,24 +4,20 @@ import AlertBox from '../../Component/AlertBox';
 import Header from '../../Component/Header';
 import EmptyState from '../../Component/EmptyState';
 
-import fire from '../../firebase';
+import docRef from '../../firebase';
 
 import './HomePage.css';
 
 class HomePage extends Component {
-  state = {
-    lists: [],
-    showAlertBox: false,
-    alertMsg: '',
-    hideAlertBtnGroup: false
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      lists: [],
+      showAlertBox: false,
+      alertMsg: '',
+      hideAlertBtnGroup: false
+    };
 
-  docRef = null;
-
-  componentDidMount() {
-    let firestore = fire.firestore();
-    let docRef = firestore.doc('pros-cons-data/state');
-    this.docRef = docRef;
     docRef.onSnapshot(doc => {
       if (doc && doc.exists) {
         this.setState({
@@ -31,9 +27,16 @@ class HomePage extends Component {
     });
   }
 
+  // componentDidMount() {
+  //   docRef &&
+  //     docRef.set({
+  //       lists: this.state.lists
+  //     });
+  // }
+
   componentDidUpdate() {
-    this.docRef &&
-      this.docRef.set({
+    docRef &&
+      docRef.set({
         lists: this.state.lists
       });
   }
