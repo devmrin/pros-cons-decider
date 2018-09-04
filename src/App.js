@@ -43,7 +43,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <HomePage />
+        <HomePage lists={this.state.lists} />
       </div>
     );
   }
