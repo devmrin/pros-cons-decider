@@ -10,6 +10,6 @@ const firestore = firebase.firestore();
 const settings = { timestampsInSnapshots: true };
 firestore.settings(settings);
 
-let docRef = firestore.doc('pros-cons-data/state');
+let docRef = firestore.doc('pros-cons/data');
 
 export default docRef;

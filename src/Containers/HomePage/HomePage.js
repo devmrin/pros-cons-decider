@@ -17,7 +17,11 @@ class HomePage extends Component {
     };
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    this.setState({
+      lists: this.props.lists
+    });
+  }
 
   componentDidUpdate() {}
 
