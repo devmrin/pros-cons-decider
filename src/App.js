@@ -10,27 +10,28 @@ class App extends Component {
 
   // custom loading
   loading() {
-    docRef.get().then(doc => {
-      if (doc && doc.exists) {
-        this.setState(
-          {
+    docRef
+      .get()
+      .then(doc => {
+        if (doc && doc.exists) {
+          this.setState({
             lists: doc.data().lists
-          },
-          () => {
-            console.log('firestore initialized');
-            const ele = document.getElementById('ipl-progress-indicator');
-            if (ele) {
-              // fade out
-              ele.classList.add('available');
-              setTimeout(() => {
-                // remove from DOM
-                ele.outerHTML = '';
-              }, 0);
-            }
-          }
-        );
-      }
-    });
+          });
+        }
+      })
+      .then(() => {
+        console.log('firestore initialized');
+        const ele = document.getElementById('ipl-progress-indicator');
+        if (ele) {
+          // fade out
+          ele.classList.add('available');
+          setTimeout(() => {
+            // remove from DOM
+            ele.outerHTML = '';
+          }, 0);
+        }
+      })
+      .catch(err => console.log(`Got an error: ${err}`));
   }
 
   componentDidMount() {
