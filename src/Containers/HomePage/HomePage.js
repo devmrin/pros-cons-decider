@@ -17,13 +17,13 @@ class HomePage extends Component {
     };
   }
 
-  componentDidMount() {
-    this.setState({
-      lists: this.props.lists
-    });
+  componentDidUpdate(prevProps) {
+    if (this.props.lists !== prevProps.lists) {
+      this.setState({
+        lists: this.props.lists
+      });
+    }
   }
-
-  componentDidUpdate() {}
 
   createNewList = label => {
     let { lists } = this.state;

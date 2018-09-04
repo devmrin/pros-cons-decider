@@ -1,9 +1,9 @@
 import firebase from 'firebase';
 
 firebase.initializeApp({
-  apiKey: 'AIzaSyDRWMlNYVnrz4k1vI8HDUCeJKmBwjETsGo',
-  authDomain: 'pro-cons-decider.firebaseapp.com',
-  projectId: 'pro-cons-decider'
+  apiKey: 'AIzaSyCe6lQ8EDeCG4TYIS_X7NAolAOpiQNx00E',
+  authDomain: 'decider-ec344.firebaseapp.com',
+  projectId: 'decider-ec344'
 });
 
 const firestore = firebase.firestore();
