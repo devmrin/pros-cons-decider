@@ -6,6 +6,8 @@ import EmptyState from '../../Component/EmptyState';
 
 import './HomePage.css';
 
+import docRef from '../../firebase';
+
 class HomePage extends Component {
   constructor(props) {
     super(props);
@@ -17,10 +19,16 @@ class HomePage extends Component {
     };
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps, prevState) {
     if (this.props.lists !== prevProps.lists) {
       this.setState({
         lists: this.props.lists
+      });
+    }
+
+    if (this.state.lists !== prevState.lists) {
+      docRef.set({
+        lists: this.state.lists
       });
     }
   }
