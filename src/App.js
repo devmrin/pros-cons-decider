@@ -34,12 +34,25 @@ class App extends Component {
       .catch(err => console.log(`Got an error: ${err}`));
   }
 
+  getRealTimeUpdates = () => {
+    docRef.onSnapshot(doc => {
+      if (doc && doc.exists) {
+        this.setState(
+          {
+            lists: doc.data().lists
+          },
+          () => console.log('onSnapshotUpdated')
+        );
+      }
+    });
+  };
+
   componentDidMount() {
     //loading resolve
     this.loading();
+    //add onUpdate listener
+    this.getRealTimeUpdates();
   }
-
-  //Alert Box Handle
 
   render() {
     return (

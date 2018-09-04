@@ -27,9 +27,12 @@ class HomePage extends Component {
     }
 
     if (this.state.lists !== prevState.lists) {
-      docRef.set({
-        lists: this.state.lists
-      });
+      docRef
+        .set({
+          lists: this.state.lists
+        })
+        .then(() => console.log('set'))
+        .catch(err => console.log(`getting error: ${err}`));
     }
   }
 
