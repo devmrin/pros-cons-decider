@@ -5,7 +5,7 @@ import docRef from './firebase';
 
 class App extends Component {
   state = {
-    lists: [1, 2]
+    lists: []
   };
 
   // custom loading
