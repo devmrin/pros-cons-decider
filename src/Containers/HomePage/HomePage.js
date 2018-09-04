@@ -4,8 +4,6 @@ import AlertBox from '../../Component/AlertBox';
 import Header from '../../Component/Header';
 import EmptyState from '../../Component/EmptyState';
 
-import docRef from '../../firebase';
-
 import './HomePage.css';
 
 class HomePage extends Component {
@@ -17,33 +15,11 @@ class HomePage extends Component {
       alertMsg: '',
       hideAlertBtnGroup: false
     };
-
-    docRef.onSnapshot(doc => {
-      if (doc && doc.exists) {
-        this.setState({
-          lists: doc.data().lists
-        });
-      }
-    });
   }
 
-  componentDidMount() {
-    docRef &&
-      docRef.get().then(doc => {
-        if (doc && doc.exists) {
-          this.setState({
-            lists: doc.data().lists
-          });
-        }
-      });
-  }
+  componentDidMount() {}
 
-  componentDidUpdate() {
-    docRef &&
-      docRef.set({
-        lists: this.state.lists
-      });
-  }
+  componentDidUpdate() {}
 
   createNewList = label => {
     let { lists } = this.state;
