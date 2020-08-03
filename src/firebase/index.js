@@ -1,9 +1,11 @@
 import firebase from 'firebase';
 
+const {FIREBASE_API_KEY, FIREBASE_AUTH_DOMAIN, FIREBASE_PROJECT_ID} = process.env
+
 firebase.initializeApp({
-  apiKey: 'AIzaSyCe6lQ8EDeCG4TYIS_X7NAolAOpiQNx00E',
-  authDomain: 'decider-ec344.firebaseapp.com',
-  projectId: 'decider-ec344'
+  apiKey: FIREBASE_API_KEY,
+  authDomain: FIREBASE_AUTH_DOMAIN,
+  projectId: FIREBASE_PROJECT_ID
 });
 
 const firestore = firebase.firestore();
